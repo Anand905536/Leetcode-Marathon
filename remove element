@@ -1,0 +1,24 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+       int second=nums.length;
+        int first=0;
+        
+        while(first!=second)
+        {
+            if(nums[second-1]==val)
+            {
+                second--;
+            }
+            else if(nums[first]!=val)
+            {
+                first++;
+            }
+            else{
+                int temp=nums[first];
+                nums[first]=nums[second-1];
+                nums[second-1]=temp;
+            }
+        }
+        return first++;
+    }
+}
