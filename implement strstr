@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+int compute(string s1,string s2)
+  {
+	if(s2.length()==0)
+		return 0;
+
+	if(s2.length()==1 && s1.length()==2)
+	{
+		if(s1[0]==s2[0])return 0;
+		return 1;
+	}
+
+	int i=0;
+	int j=0;
+	while(i<s1.length())
+	{
+		if(s2[j]==s1[i])
+		{
+			j++;
+          if(j==s2.length())
+          {
+          	return i-s2.length()+1;
+          }   
+		}
+       else
+       {
+       	 i=i-j+1;;
+			 j=0;
+            
+             if(s2[j] == s1[i])
+             {
+                j++;
+             }
+		}
+		i++;
+	}
+	return -1;
+}
+int main()
+{
+	string findin,tofind;
+	cin>>findin>>tofind;
+    cout<<compute(findin,tofind)<<endl;
+}
