@@ -1,0 +1,49 @@
+    public int[] plusOne(int[] digits) {
+        
+        int n=digits.length-1;
+        int check=0;
+        for(int i:digits)
+        {
+            if(i!=9){
+                  check=1;
+                break;
+            }
+              
+        }
+        int m=0;
+        if(check==1)
+        {
+            m=digits.length;
+         }
+        else{
+            m=digits.length+1;
+      }
+	int ans[]=new int[m];
+	  int carry=0;
+	  int count=0;
+	  int i=m-1;
+
+     while(carry>0 || n>=0)
+     {
+        if(n>=0)
+        {
+        	if(count==0)
+        	{
+        		carry+=digits[n]+1;
+        		n--;
+        	}
+        	else{
+        		carry+=digits[n];
+        		n--;
+        	}
+        }
+
+        ans[i]=carry%10;
+         i--;
+        carry=carry/10;
+        count++; 
+     }	
+    
+     return ans;
+    }
+}
