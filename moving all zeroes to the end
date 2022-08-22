@@ -1,0 +1,23 @@
+
+
+void zeroestoend(vector<int>&nums)
+{
+if(nums.size()==1 || nums.size()==0)return;
+        
+        int i=0;
+        int j=0;
+        while(i<nums.size())
+        {
+             cout<<nums[i]<<" "<<nums[j]<<endl;
+            if(nums[i]!=0){
+                 nums[j++]=nums[i];
+            }
+            i++;
+           
+        }
+        
+        for(int k=j;k<nums.size();k++)
+        {
+            nums[k]=0;
+        }
+  }
