@@ -1,0 +1,50 @@
+ 
+    ListNode* reverse(ListNode* head)
+    {
+       ListNode* prev=NULL;
+       ListNode* curr=head;
+        while(curr!=NULL)
+        {
+            ListNode* temp=curr->next;
+            curr->next=prev;
+            
+            prev=curr;
+            curr=temp;
+        }
+        return prev;
+    }
+    bool isPalindrome(ListNode* head) {
+        
+      if(head->next==NULL)return head;
+        
+       // if(head->next->next==NULL && head->val!=head->next->val)return  false; 
+        
+        ListNode* slow=head;
+        ListNode* fast=head;
+        
+        while(fast->next!=NULL && fast->next->next!=NULL)
+        {
+            // cout<<slow->val<<" ";
+            // cout<<fast->val<<" ";
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        // cout<<endl;
+        // cout<<slow->next->val;
+        slow->next=reverse(slow->next);
+        
+        slow=slow->next;
+        //
+        while(slow!=NULL)
+        {
+            // cout<<slow->next->val<<" ";
+            if(head->val!=slow->val)return false;
+            
+            head=head->next;
+            slow=slow->next;
+            
+        }
+        
+        return true;
+    }
+        
