@@ -1,0 +1,24 @@
+  bool isSubsequence(string s, string t) {
+        int a=s.size();
+        int b=t.size();
+        
+      if(a==0)return true;
+        
+    int i=0;
+    int j=0;
+    while(j<t.length())
+    {
+    	// cout<<i<<" "<<j<<" ";
+    	if(s[i]==t[j])
+    	{
+            i++;
+            if(i==a)return true;
+    		j++;
+    	}
+    	else{
+    		j++;
+    	}
+    }
+  
+    
+    return false;
