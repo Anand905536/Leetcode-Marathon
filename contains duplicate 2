@@ -1,0 +1,13 @@
+vector<pair<int,int>>vp;
+	for(int i=0;i<v.size();i++)
+	{
+		vp.push_back(make_pair(v[i],i));
+	}
+	sort(vp.begin(),vp.end());
+
+	for(int i=1;i<vp.size();i++)
+	{
+		if((vp[i-1].first==vp[i].first) && abs(vp[i-1].second-vp[i].second)<=k)
+			return true;
+	}
+	return false;
