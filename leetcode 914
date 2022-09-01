@@ -1,0 +1,18 @@
+I become fool because i want to find the minimum of all the (map.second)th and then wanna check that min.
+is greator then equals to two or not if yes then i will check another condition that
+(map.second)th element gives 0 on dividing with that min. if no then return false else return true;
+
+but all i have to find is GCD of all the  (map.second)th element and have to check that gcd>=2 or not if yes the return true else false;
+
+
+ unordered_map<int,int> mp;
+        for(auto it: v){
+            mp[it]++;
+        }
+        int fin=0;
+        for(auto it: mp){
+        	cout<<fin<<" "<<it.second<<" ";
+            fin=__gcd(fin,it.second);
+        }
+        return fin>=2;
+        
