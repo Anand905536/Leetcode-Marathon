@@ -1,19 +1,25 @@
  bool canPlaceFlowers(vector<int>& flowerbed, int n) {
  
         int k=flowerbed.size();
+	
+//checking for edge cases
         if((k==1 && n==1 && flowerbed[0]==0 )||(k==1 && n==0 && flowerbed[0]==1) ||  (k==1 && n==0          && flowerbed[0]==0 ))return true;
         if((k==1 && n==1 && flowerbed[0]==1 ))return false;
         
+//checking for first element 	
        if(flowerbed[0]==0 && flowerbed[1]==0)
        {
            flowerbed[0]=1;
            n--;
        }
+ //checking for last element 
 	   if(flowerbed[k-2]==0 && flowerbed[k-1]==0)
        {
            flowerbed[k-1]=1;
            n--;
        }
+       
+ // checking for 2nd to 2nd last elements
 	   int i=1;
 	   while(i<k-1)
 	   {
@@ -25,9 +31,9 @@
             }
            i++;
 	   }
-    //    for(int i:flowerbed)cout<<i<<" ";
-    //    cout<<endl;
-    //    cout<<n<<endl;
+       //for(int i:flowerbed)cout<<i<<" ";
+       //cout<<endl;
+       //cout<<n<<endl;
 	   if(n<=0)return true;
 	   return false;
     }
