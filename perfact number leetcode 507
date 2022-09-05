@@ -1,0 +1,21 @@
+ bool checkPerfectNumber(int num) {
+        if(num==1)return false;
+        int i=1;
+        int ans=0;
+        int res=num;
+       while(i<=num/2+1)
+       {
+           // cout<<ans<<" ";
+           if(res%i==0)
+           {
+              cout<<i<<" ";
+              ans+=i;
+               // res/=i;
+           }
+            // 
+           i++;
+       }
+        if(ans==num)return true;
+        return false;
+    }
+};
