@@ -1,0 +1,47 @@
+ bool check(string s,int start,int end)
+    {
+        while(start<end)
+        {
+            if(s[start]!=s[end])
+            {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    bool validPalindrome(string s) {
+        if(s.length()==1)return true;
+        
+        int start=0;
+        int end=s.length()-1;
+        while(start<end)
+        {
+            if(s[start]==s[end])
+            {
+                start++;
+                end--;
+            }
+            else
+            {
+                bool skipstart=check(s,start+1,end);
+                bool skipend=check(s,start,end-1);
+                if(skipstart || skipend)return true;
+                return false;
+            }
+        }
+         if(start>=end)return true;
+        return false;
+    }
+	
+	
+	
+	
+	
+.if s[start]==s[end] then we just have to increase start and decrease end 
+.else we will pass to another function valid for further check 
+->in first pass we will pass "start+1" to skip one integer from startside
+->and in second pass we will send "end-1" to skip one integer from endside
+into another function to check that after skipping one integer our string is palidrome or not
+if any of that function (skipstart || skipend) return true we will return true else return false;
