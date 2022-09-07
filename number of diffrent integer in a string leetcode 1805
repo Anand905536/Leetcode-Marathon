@@ -1,0 +1,21 @@
+ int numDifferentIntegers(string word) {
+        unordered_set<string>st;
+ 	      int i=0;
+ 	      string ans="";
+ 	    while(i<word.length())
+ 	      {
+          if(isdigit(word[i]))
+          {
+        	 while(word[i]=='0')i++;
+            while(isdigit(word[i]))
+            {
+            	ans+=word[i++];
+            }
+              st.insert(ans);
+              ans="";    
+        }
+        i++;
+ 	}
+     if(ans!="") st.insert(ans);
+		return st.size();
+    }
