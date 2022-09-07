@@ -1,0 +1,12 @@
+  string ans="";
+	while(col>0)
+	{
+		int lastdig=col%26;                 // taking modulus for finding last digit
+		if(lastdig==0)last=90;             // if lastdig equals zero then insert 90 in it coz 0 means 'Z' 
+		else lastdig=lastdig+64;         // else whatever is lastdig add it in 64 coz from 65 is 'A'
+
+		ans+=(char)lastdig;                //lastly add this char to ans string       
+		col=(col-1)/26;                        //
+	}
+	reverse(ans.begin(),ans.end());       // reverse the final string
+	return ans;
