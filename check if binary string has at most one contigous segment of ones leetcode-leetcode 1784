@@ -1,0 +1,18 @@
+bool checkOnesSegment(string s) {
+        int j=0;
+        int count=0;
+        while(j<s.length())
+        {
+          if(s[j]=='1')j++;
+            else break;
+        }
+        if(j==s.length()-1)return true;
+        else {
+             while(j<s.length())
+            {
+              if(s[j]=='0')j++;
+              else return false;
+            }
+        }
+        return true;
+    }
