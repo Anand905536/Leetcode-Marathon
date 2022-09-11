@@ -1,0 +1,27 @@
+
+
+first method tc-O(NLOGN)
+             sc-O(1)
+
+
+
+int secondHighest(string s) {
+      sort(s.begin(),s.end());
+   cout<<s<<endl;
+   int largest=-1;
+   int seclar=-1;
+   int i=1;
+   while(i<s.length())
+   {
+   	if(s[i-1]<s[i] && isdigit(s[i]))
+   	{
+   		
+   		largest=s[i]-48;
+   		seclar=s[i-1]-48;
+   		cout<<largest<<" "<<seclar<<endl;
+   	}
+   	i++;
+   }
+   cout<<endl;
+   return seclar;
+    }
