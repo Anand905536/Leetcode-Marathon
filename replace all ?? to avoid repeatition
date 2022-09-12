@@ -1,0 +1,34 @@
+Solve by using only 'a', 'b' or 'c'
+If the previous and next character isn't 'a', then replace '?' by 'a'.
+If the previous and next character isn't 'b', then replace '?' by 'b'.
+If any of the previous and next character is 'a' or 'b', then replace '?' by 'c'.
+
+
+
+
+
+
+
+string modifyString(string s) {
+        
+        if (s[0] == '?') {
+            if (s[1] == 'a')
+                s[0] = 'b';
+            else
+                s[0] = 'a';
+        }
+        for (int i = 1; i < s.size(); i++) {
+            if (s[i] == '?') {
+                if (s[i - 1] != 'a' && s[i + 1] != 'a')
+                    s[i] = 'a';
+                else if (s[i - 1] != 'b' && s[i + 1] != 'b')
+                    s[i] = 'b';
+                else if ((s[i - 1] != 'a' && s[i + 1] != 'b') || (s[i - 1] != 'b' && s[i + 1] != 'a'))
+                    s[i] = 'c';
+            }
+        }
+        return s;
+    }
+    
+    
+    
