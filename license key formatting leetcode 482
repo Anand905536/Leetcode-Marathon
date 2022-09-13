@@ -1,0 +1,39 @@
+   string licenseKeyFormatting(string s, int k) {
+       string ans="";
+  int t=k;
+  int i=s.length()-1;
+  while(i>0)
+  {
+  	if(s[i]!='-' && k>=1)
+  	{
+  		ans+=toupper(s[i]);
+  		k--;
+  		i--;
+  		// cout<<ans<<" "<<k<<" "<<i<<endl;
+  	}
+  	if(s[i]=='-')
+  	{
+  		i--;
+  	}
+  	else if(k<1 && i>=0)
+  	{
+  		ans+='-';
+  		k=t;
+  	}
+  	
+  }
+   if(s[0]!='-')
+  	{
+     	if(k==0)
+  	   {
+  		 ans+='-';
+  		 ans+=toupper(s[i]);
+  	   }
+  	   else{
+  	   	ans+=toupper(s[i]);
+  	   }
+    }
+  reverse(ans.begin(),ans.end());
+  // cout<<ans<<endl;
+  return ans;
+    }
