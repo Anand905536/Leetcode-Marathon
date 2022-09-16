@@ -1,0 +1,38 @@
+   bool canThreePartsEqualSum(vector<int>& arr) {
+        long long int total=0;
+	    long long int sum=0;
+        int n=arr.size();
+	    int i=0;
+        
+//         finding total sum 
+	while(i<n)	total+=arr[i++];
+        
+// checking that if totalsum can be devided into three equal half
+	if(total%3!=0)return false;
+
+//         finding sum until n-2 elements for worst case 
+//         ex--[4,4,8,8]
+	int j=0;
+	while(j<n-2)
+	{
+        sum+=arr[j++];
+//   we imediately break the loop if we find sum which is totalsum/3 before (n-2)
+        if(sum==total/3)break;
+	}
+// after reaching n-2 if our sum is not meeting out condition just return fALSE;
+	if(sum!=total/3)return false;
+
+        
+//         sameabove procedure uptill (n-1) elements 
+     sum=0;
+	while(j<n-1)
+	{
+        sum+=arr[j++];
+       if(sum==total/3)break;
+	}
+//  and lastly no need to check for third partition coz. it will be there if first and sec. are available
+	return sum==total/3;
+
+  
+    
+    }
