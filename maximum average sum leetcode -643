@@ -1,0 +1,44 @@
+
+                                   BY SLIDING WINDOW
+
+
+
+
+
+
+
+	double compute(vector<int>nums,int k)
+{
+	int n=nums.size();
+
+    double s=0;
+    double max_s=INT_MIN;
+    
+    //FIXED SIZE SLIDING WINDOW
+    
+    int i=0;
+    int j=0;
+    
+    while(j<n){
+        s+=nums[j];
+        
+        //1. WHEN WINDOW SIZE IS LESS THAN K
+        if(j-i+1<k){
+            j++;       //just slide j;
+        }
+        
+        //2. WHEN WINDOW SIZE IS K
+        else if(j-i+1==k){
+            max_s=max(s,max_s);
+            
+            //to slide the window
+            s=s-nums[i];
+            i++;
+            j++;
+        }
+    }
+    
+    return (max_s)/k;
+    
+        
+}
