@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> compute(vector<int>nums,int k)
+{
+   vector<int>ans;
+    deque<int>allneg;
+   int i=0;
+   int j=0;
+   while(j<nums.size())
+   {
+
+   	if(nums[j]<0){
+   		allneg.push_back(nums[j]);
+   	}
+
+   	// if window is size is less then the required size 
+   	 if(j-i+1<k){
+   	 	j++;
+      }
+
+   	 // if window size is exactly same as required
+   	 else
+   	 {
+   	 	if(allneg.size()==0)ans.push_back(0);
+   	 	else
+   	 	{
+              ans.push_back(allneg.front());
+              if(nums[i]<0)
+              {
+			        allneg.pop_front();
+               }
+			  }
+           i++;
+           j++;
+   	 	}
+   	 }
+          return ans;
+
+   }
+
+
+int main()
+{
+   int n,k;
+   cin>>n>>k;
+   vector<int>v;
+   for(int i=0;i<n;i++)
+   {
+   	int j;
+   	cin>>j;
+   	v.push_back(j);
+   }
+   // for(int l=0;l<v.size();l++){
+   //    cout<<v[l]<<" ";
+   // }
+   vector<int>ans;
+   ans=compute(v,k);
+   for(int l=0;l<ans.size();l++){
+      cout<<ans[l]<<" ";
+   }
+}
