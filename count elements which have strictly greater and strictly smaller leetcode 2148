@@ -1,0 +1,52 @@
+//     first approach 
+    
+    int countElements(vector<int>& nums) {
+//      map<int,int>mp;
+//    for(int i=0;i<nums.size();i++)
+//    {
+//       mp[nums[i]]++;
+//    }
+//    if(mp.size()>2)
+//       {
+//            int firstcount=0;
+//            int lastcount=0;
+//        firstcount=mp.begin()->second;
+//        lastcount=mp.rbegin()->second;
+//        int finalanswer=nums.size()-(firstcount+lastcount);
+//        return finalanswer;
+//       }
+//    else return 0;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//         second approch 
+        
+     sort(nums.begin(),nums.end());
+        
+        int x=nums[0];
+        int y=nums[nums.size()-1];
+        
+        int count=0;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]!=x and nums[i]!=y)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+};
