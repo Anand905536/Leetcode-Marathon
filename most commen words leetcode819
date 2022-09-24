@@ -1,0 +1,62 @@
+first we  convert this string into vector of string and then count frequancy of all the string in vector of string using map and afterthat insert '0' in banned string in map and so that if banned string have highest freuqncy then it would be '0' and then we return string which have  second highest occurances
+
+for ex:-
+
+bab ytr ge bab bab bab bab ge ge ge
+banned string:-bab
+
+in map :-
+
+bab->5
+ge->4
+ytr->1
+
+so we put i .second =0  and then 
+
+bab->0
+ge->4
+ytr->1
+
+and our answer would be ge because bab is banned
+our answer is "ge"  
+
+
+
+
+
+
+  string mostCommonWord(string paragraph, vector<string>& banned) {
+        cout<<paragraph<<endl;
+    vector<string>v;
+    string tovec="";
+   int i=0;
+   while(i<paragraph.size())
+   {
+      if(isalpha(paragraph[i]) && !isspace(paragraph[i])){
+         tovec+=tolower(paragraph[i]);
+      }
+      else if(paragraph[i]==' ')
+      {
+         v.push_back(tovec);
+         tovec="";
+      }
+      i++;
+   }
+   if(tovec!=" ")v.push_back(tovec);
+   unordered_map<string,int>mp;
+   for(int i=0;i<v.size();i++)mp[v[i]]++;
+
+   for(string i:banned) mp[i]=0;
+   for(auto i:mp)cout<<i.first<<" "<<i.second<<endl;
+        string ans;
+        int maxUsedFreq=0;
+        for(auto i:mp){
+            if(i.second>maxUsedFreq){ 
+                ans=i.first;
+                maxUsedFreq=i.second;
+            }
+        }
+        return ans;
+
+    }
+};
