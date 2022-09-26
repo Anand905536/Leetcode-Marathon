@@ -1,0 +1,22 @@
+ int findClosestNumber(vector<int>& nums){
+        // sort(nums.begin(),nums.end());
+      int diff=0;
+        int mindiff=INT_MAX;
+        int ans=0;
+        int i=0;
+        while(i<nums.size())
+        {
+           diff=abs(0-nums[i]);
+            if(diff<mindiff)
+            {
+                mindiff=diff;
+                 ans=nums[i];
+            }
+            else if(diff==mindiff)
+            {
+                ans=max(nums[i],ans);
+            }      
+          i++;
+        }
+        return ans;
+    }
