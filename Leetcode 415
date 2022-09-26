@@ -29,12 +29,16 @@
                 i++;
             }
         }
-        if(carry)
-        {
-            ans.push_back(carry+48);
-        }
+        if(carry) ans.push_back(carry+48);
         
         reverse(ans.begin(),ans.end());
+    
+         int i = 0;
+         int p = ans.length() - 1;
+         while(p--){
+           if(ans[i] == '0')ans.erase(ans.begin() + i);
+           else return ans;
+        }
         return ans;
     }
 };
