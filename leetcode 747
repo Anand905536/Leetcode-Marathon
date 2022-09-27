@@ -1,0 +1,24 @@
+ int dominantIndex(vector<int>& nums) {
+        int n=nums.size();
+        int maxi=0;
+   int secmaxi=0; 
+   int i=0;
+   int ind=0;
+    while(i<n)        //loop for finding max element  and thier index
+    {
+    	if(nums[i]>maxi)
+    	{
+    		maxi=nums[i];
+    		ind=i;
+    	}
+    	i++;
+    }
+    int j=0;
+    while(j<n)        //loop for finding secmax element
+    {
+    	if(nums[j]<maxi && nums[j]>secmaxi)secmaxi=nums[j];
+    	j++;
+    }
+    if(secmaxi*2<=maxi)return ind;             //if secmaxelement is twice of max element or less then twice of max element 
+    return -1; 
+    }
