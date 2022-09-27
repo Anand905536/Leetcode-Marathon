@@ -1,0 +1,61 @@
+ //optimised
+ 
+     int countOdds(int low, int high) {
+          int nums = high - low + 1;
+        if (low % 2 != 0 && high % 2 != 0) {
+            return nums / 2 + 1;
+        } else {
+            return nums / 2;
+       }
+	   
+	   
+	   
+//optimised but not that much 
+
+    int countOdds(int low, int high) {
+      int total=high-low;
+         if(total==0)
+         {
+             if(low%2!=0 && high%2!=0)return 1;
+             else return 0;
+         }
+        int count=0;
+        while(low<=high)
+        {
+        	if(low==high && low%2!=0){
+        	  count++;
+        	  break;
+        	}
+
+          if(low%2!=0){
+          	count++;
+          	low+=2;
+          }
+          else low+=1;
+
+          if(high%2!=0){
+          	count++;
+          	high-=2;
+          }
+          else high-=1;
+
+        }
+        return count;
+    }
+    
+	
+// brute force 
+
+int countOdds(int low, int high) {
+        int count=0;
+        while(low<=high)
+        {
+            if(low%2!=0)count++;
+            low++;
+        }
+        return count;
+    }
+	
+	
+	
+	```
