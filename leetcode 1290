@@ -1,0 +1,47 @@
+//we cannot store linked list data in integer if we do so then it will generate error of integer 
+//overflow so we have to store it in string as i have done below then apply the formula of 
+//converting binary number to integer after converting each every character of string in integer
+//ex:-  101
+// binary representation will be  (1*2^2)+(0*2^1)+(1*2^0)=4+0+1=5
+
+
+  string digitstring="";
+        while(head!=NULL)
+        {
+           digitstring+=(head->val)+48;     // adding (val) to string after converting into char
+            head=head->next;
+        }
+        int n=digitstring.length()-1;
+       long long int dec = 0, i = 0, rem;
+        
+         while (n>=0) {
+             int digit=digitstring[n]-48;    //again converting into integer 
+             dec += digit*pow(2, i);          //applied formula here
+             ++i;
+             n--;
+         }
+
+       return dec;               //return the desired digit
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+  // highly optimized
+	   
+   int getDecimalValue(ListNode* head) {
+          int sum = 0;
+        while (head != NULL){
+            sum *= 2;                // first mulitply it with 2 as our sum is 0 so first value of sum will be 0
+            sum += head->val;        // update the sum
+            head = head->next;      
+          }
+        return sum;
+  }
+	   
+	   ```
