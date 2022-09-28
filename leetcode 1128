@@ -1,0 +1,14 @@
+  int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+// In this line we are adding to result variable "res" the number of times we've seen one particular pair of domino. To hold all possible pairs I'm using array "counts", where the index indicates the pair and element indicates number of times we've seen this combination before current iteration (or current - 1). To identify unique element I need to form the index based on up and down values of the domino. For that, I'm multiplying the value of upper part by 10 and then add value of down part. For instance 2-3 will became 2*10 + 3 = 23. We need to take into account number of times we've seen this combination before the current iteration, so I'm incrementing the element value after I've added it to result. Essentially this is equivalent expression to one below, just in a compact form:
+
+// int index = up * 10 + down;
+// res = res + counts[index];
+// counts[index] = counts[index] + 1;
+       
+     unordered_map<int, int> count;
+        int res = 0;
+        for (vector d : dominoes) {
+            res += count[min(d[0], d[1]) * 10 + max(d[0], d[1])]++;
+        }
+        return res;
+    }
