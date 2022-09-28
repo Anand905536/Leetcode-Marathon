@@ -1,0 +1,76 @@
+//         optimised approach in single iteration
+  ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int len=0;
+        ListNode* temp=head;
+        
+        // calculating lengthof linked list
+        while(temp!=NULL)
+        {
+            len++;
+            temp=temp->next;
+        }
+        len-=n;
+        
+//       while we have to delete the first node
+        if(len==0)return head->next;
+        
+        temp=head;
+//         running a loop until len greater then 1
+        while(len>1 )
+        {
+            temp=temp->next;
+            len--; 
+        }
+//         remove the desired node
+        if(temp!=NULL || temp->next!=NULL)temp->next=temp->next->next;
+        
+        return head;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Less optimised approach
+
+
+  ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int count=0;
+        ListNode* temp=head;
+        while(temp!=NULL)
+        {
+            temp=temp->next;
+            count++;
+        }
+//        when we have to delete the first node
+        if(count==n)return head->next;
+      
+        int k=count-n;
+        temp=head;
+        count=1;
+        while(count<k && temp->next!=NULL)
+        {
+            temp=temp->next;
+            count++;
+        }
+       if(temp!=NULL || temp->next!=NULL )
+       {
+           temp->next=temp->next->next;
+       }
+        else temp->next=NULL;
+        
+        return head;
+    }
