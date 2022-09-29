@@ -1,0 +1,18 @@
+//iterate the string from left to right. If digit encounter, check its next digit  if it is
+//greater than the given digit. If the next number is greater than given digit, remove the digit at current position.
+//If no such digit is found, eliminate the last occurence of the digit.
+//TC: O(n)
+//SC: O(1)
+
+string removeDigit(string number, char digit) {
+	int ind, n = number.size();
+	for (int i = 0; i < n; i++) {
+		if (number[i] == digit) {
+			ind = i;
+			if (number[i+1] > number[i]) {
+				break;
+			}
+		}
+	}
+	return number.substr(0,ind)+number.substr(ind+1);
+	}
