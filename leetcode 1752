@@ -1,0 +1,18 @@
+//idea is too simple if array is rotated then there is only one element which is smaller then its 
+//all previous elements and greator or equal then all next elements so we take variable count 
+//just to count the occurances of such elements if that count is greator then 1 return false otherwise return true;
+
+ bool check(vector<int>& nums) {
+        int count =0;
+        int n=nums.size();
+        for(int i=1;i<n;i++){
+            if(nums[i-1]>nums[i]) count++;              // count the occurances
+            if (count>1)return false;                        
+        }
+        if(nums[n-1]>nums[0]){               
+            count++;
+        }
+        return count<=1;
+        
+    }
+
