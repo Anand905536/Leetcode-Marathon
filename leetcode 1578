@@ -1,0 +1,45 @@
+//approach is too simple as we know we have to remove occurances of same character which 
+//have min. value in given vector, so what we have to do we will find the sum of all values of 
+//total equal characters and delete the maximum value character from that sum and add it to 
+//finalcost variable  let me explain 
+
+//ex
+//"aaabbbabbbb"
+//[3,5,10,7,5,3,5,5,4,8,1]
+
+//we can see first three 'a's  have value 3,5,10 and thier sum is 18 and the max. value in that 
+//10 so will subtract (sum-max)==(18-10)==8 and just add it to the another varaiable  
+//finalcost this process will follow in whole string 
+//for more clarification just go through the code
+
+
+
+
+
+   int minCost(string colors, vector<int>& neededTime) {
+   int finalcost=0;
+   char curr=colors[0];
+   int maxi=neededTime[0];
+   int sum=neededTime[0];
+   int i=1;
+   while(i<colors.size())
+   {
+   	if(curr==colors[i])    // if characters are same 
+   	{
+     maxi=max(maxi,neededTime[i]);    
+     sum+=neededTime[i];            //all values are added to the sum 
+   	}
+   	else
+   	{
+   		// cout<<i<<endl;
+      finalcost+=(sum-maxi);       // when characters are not equal then just subtract maximum value from sum 
+      curr=colors[i];            // update curr
+      maxi=neededTime[i];       // update maxi
+      sum=neededTime[i];       // update sum 
+   	}
+   	i++;
+   }
+   finalcost+=(sum-maxi);      // for last window 
+   return finalcost;
+    }
+	```
