@@ -1,0 +1,21 @@
+```
+  bool compute(TreeNode* p,TreeNode* q)
+    {
+        if(p==NULL && q==NULL)return true;     //checking if both are null 
+        
+        if(p!=NULL && q==NULL) return false;       // checking if one of them is false
+        
+        if(p==NULL && q!=NULL) return false;      // checking if one of them is false
+          
+        if(p->val!=q->val)return false;                 // if the nodes are not null then check the values present in nodes that they are similier or not 
+        
+        bool first=compute(p->left,q->right);       //calling left and right
+        bool second=compute(p->right,q->left);     // calling right and left
+        
+        return first && second;          // return if both are true or false if any of them is false
+    }
+    bool isSymmetric(TreeNode* root) {
+       return compute(root->left,root->right);        //calling another function with two parameteres  because we need to find mirror image so we have to check left and right of the tree at a time ,so for that we require here two parameters 
+    }
+	
+	```
