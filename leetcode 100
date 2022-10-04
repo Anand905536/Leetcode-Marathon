@@ -1,0 +1,12 @@
+   bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p==NULL  && q==NULL) return true;    //   if both are null  then no issue just return true (this means one of the call has ended  either left or right )
+        
+        if(p!=NULL && q==NULL) return false;     // if  p is not equal to NULL 
+        
+        if(p==NULL && q!=NULL) return false;    // if q is not equal to NULL
+        
+        if(p->val!=q->val)return false;                // if nodes are available but thier values present are not same 
+        
+        return isSameTree(p->left,q->left) && isSameTree(p->right,q->right);   //  return true if both true or return false
+        
+    }
