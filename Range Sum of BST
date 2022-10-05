@@ -1,0 +1,13 @@
+ void inorder(TreeNode* curr, int *sum, int left, int right) {
+        if(!curr) return;
+        if(curr->val >= left && curr->val <= right) {
+            *sum = *sum + curr->val;
+        }
+        inorder(curr->left, sum, left, right);
+        inorder(curr->right, sum, left, right);
+    }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        int sum = 0;
+        inorder(root, &sum, low, high);
+        return sum;
+    }
