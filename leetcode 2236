@@ -1,0 +1,6 @@
+bool checkTree(TreeNode* root) {
+       int leftsum=root->left->val;
+       int rightsum=root->right->val;
+        
+       return (leftsum+rightsum==root->val);
+    }
