@@ -1,0 +1,12 @@
+TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
+        if(!cloned)return NULL;                // if cloned equals null return null
+        
+        if(target->val==cloned->val)return cloned;        // if target's value equals cloned's value then return refrence of cloned
+       
+        TreeNode* left=getTargetCopy(original,cloned->left,target);    //call for left subtree
+        
+        TreeNode* right=getTargetCopy(original,cloned->right,target);   // call for right subtree
+        
+        if(left)return left;              //if left is not null then return left
+        return right;                     //otherwise return right
+    }
