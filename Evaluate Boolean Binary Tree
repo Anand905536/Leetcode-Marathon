@@ -1,0 +1,10 @@
+ bool evaluateTree(TreeNode* root) {
+        if(root->val==0)return false;      //checking if leaf node have value 0
+        if(root->val==1)return true;     //checking if leaf node have value 1
+        
+        bool left=evaluateTree(root->left);                 //left call
+        bool right=evaluateTree(root->right);           //rightcall
+        if(root->val==2) return left || right;              // if root val==2 return OR of left and right variable
+        return left && right;                                    // if root val==3 return AND of left and right variable
+       
+    }
