@@ -1,0 +1,24 @@
+ int mostFrequentEven(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]%2==0) mp[nums[i]]++;       // inserting even values
+           
+        }
+        int Max=INT_MIN;
+        int ans=-1;
+       for(auto it:mp)
+        {
+            if(it.second>Max)       //checking that if map's value is greator then max then insert that value in max and update ans variable by the key of that variable
+            {
+                Max=it.second;
+                ans=it.first;
+            }
+            else if(it.second==Max && it.first<ans)        //if value is equals to max element and key is less then ans variable then update the key 
+                ans=it.first;
+        }
+        if(ans==-1)          // if there is no such element then return -1 
+            return -1;
+        return ans;        // else return ans;
+       
+    }
