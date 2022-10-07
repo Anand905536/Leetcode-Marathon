@@ -1,0 +1,11 @@
+string reverseStr(string s, int k) {
+	int i=0;
+	while(i<s.size())
+	{
+        reverse(s.begin()+i,min(s.begin()+i+k,s.end()));  //this line just take the ith index as starting point and min(s.begin()+i+k,s.end() 
+		                                                 //as a ending point because we want to reverse next k length and also we are using minimum here because let's say "abcdefgh" and k=3 and we can see that at last there are two          
+														 // char left 'gh' so minimum of both ( i+k) length or remaining length s.end() will give us answer
+        i+=2*k;
+	}
+	return s;
+    }
