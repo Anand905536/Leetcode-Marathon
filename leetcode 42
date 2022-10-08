@@ -1,0 +1,46 @@
+//approach is not that difficult, we just maintain the maximumheight of left and maximumheight of right 
+
+// here we need to maintain two pointer left and right
+
+//step1- first we have to check that height[left] is less then or equal to height[right] 
+      //  if yes then we again check height[left] is greator then our maximumleftheight if  
+	  //greator, then we update our maximumleftheight else add the diffrence of (maximumleftheight-currentheight in answer variable ) and increment the left pointer
+	  
+//step2- in else part we will check height[right] is greator then our  maximumrightheight 
+	  //if greator, then we update our maximumrightheight else add the diffrence of  
+	  //(maximumrightheight-currentheight in answer variable ) and decrement the right      pointer
+	  //
+
+// ultimate goal is we have to maintain the leftmax and right max and subtract current element from that  
+
+//for more detail go thorugh the code 
+
+
+
+ int ans=0;
+        int left=0;
+        int right=height.size()-1;
+        int maxleft=0;
+        int maxright=0;
+        while(left<=right)                   // running loop until left and right pointer does'nt meet
+        {
+            if(height[left]<=height[right])                        //if left height is less then or equal to right height
+            {
+                if(height[left]>maxleft)maxleft=height[left];        // if leftmax < current element then update leftmax 
+				
+                else ans+=maxleft-height[left];             /// else add the diffence in ans 
+              
+                left++;
+            }
+            else
+            {
+                if(height[right]>maxright)maxright=height[right];                  // if rightmax < current element then update rightmax 
+				
+                else ans+=maxright-height[right];                            //   /// else add the diffence  in ans 
+				
+                right--;
+            }
+        }
+        return ans;
+		
+		```
