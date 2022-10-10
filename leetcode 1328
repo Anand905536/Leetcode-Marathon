@@ -1,0 +1,46 @@
+// approach is too easy what i have done here if first element of string is not 'a' then replace it 
+//with 'a' and return it and if first character is 'a' then iterate the string and first character 
+//which is not 'a' just replace it to 'a' but here is a cache 
+//for ex:- aabaa for this string if you replace 'b' from 'a' like this "aaaaa"  then even after it will 
+//remain palindrome so what we have to do if string length is odd and i equals to middle 
+//index then just leave this element as it is .
+//and at last if we don't find any diffrent element then just replace last character from 'b'
+
+
+
+
+
+
+
+
+
+
+
+ string breakPalindrome(string palindrome) {
+        int n=palindrome.size();
+        
+        if(n==1)                             //if n equal 1 just return empty string 
+        {
+            string ans="";
+            return ans;
+        }
+        
+        if(palindrome[0]!='a')           //  if first char is not 'a' then replace it with'a'
+        {
+            palindrome[0]='a';
+            return palindrome;
+        }
+        
+        for(int i=0;i<n;i++)               
+          {
+           if(palindrome[i]!='a' && i!=n/2)         // if any index is not equals 'a' and i is not in the middle then replace it with 'a'
+            {
+               palindrome[i]='a';
+               return palindrome;
+             }
+            }
+        palindrome[n-1]='b';                              //otherwise replace last char![Uploading file...]()
+
+        return palindrome;               
+        
+   }
