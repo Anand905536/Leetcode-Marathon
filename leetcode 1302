@@ -1,0 +1,19 @@
+    int compute(TreeNode* root)
+    {
+        if(!root)return 0;
+        return 1+max(compute(root->left),compute(root->right));
+    }
+    int sum=0;
+    int compute2(TreeNode* root,int height)
+    {
+        if(!root)return 0;
+        if(height==0)sum+=root->val;
+        compute2(root->left,height-1);
+        compute2(root->right,height-1);
+        return sum;        
+    }
+    int deepestLeavesSum(TreeNode* root) {
+      int height=compute(root);
+      int sum=compute2(root,height-1);
+      return sum;   
+    }
