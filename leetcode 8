@@ -1,0 +1,40 @@
+  int myAtoi(string s) {
+        long long int ans=0;
+        int count=0;
+        int neg=0;
+        int j=0;
+        while(j<s.size())
+        {
+            if(s[j]==' '){
+                j++;
+            }
+            else break;       
+        }
+        
+            if(s[j]=='-'){
+                neg=1;
+                j++;
+            }
+             else if(s[j]=='+')
+             {
+                 j++;
+             }
+        
+        for(int i=j;i<s.size();i++)
+        {
+             if(s[i]>='0' && s[i]<='9')
+                {
+                if(ans>=INT_MAX)break;
+                 ans=ans*10+(s[i]-'0');  
+               }
+            else break;
+         
+        }
+        if(neg)
+        {
+            ans=ans*(-1);
+        }
+        if(ans>INT_MAX)return INT_MAX;
+        if(ans<INT_MIN)return INT_MIN;
+        return ans;
+    }
