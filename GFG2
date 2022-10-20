@@ -1,0 +1,16 @@
+5
+7 10 4 20 15
+4
+
+
+
+int kthSmallest(int arr[], int l, int r, int k) {
+       priority_queue<int>mh;
+       for(int i=l;i<=r;i++)
+       {
+           mh.push(arr[i]);
+        //   cout<<mh.size()<<" "<<arr[i]<<" ";
+           if(mh.size()>k)mh.pop();
+       }
+       return mh.top();
+    }
