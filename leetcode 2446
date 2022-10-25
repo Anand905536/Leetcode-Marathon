@@ -1,0 +1,31 @@
+ bool haveConflict(vector<string>& event1, vector<string>& event2) {
+        string first="";
+        string second="";
+        string third="";
+        string fourth="";
+        int i=0;
+        int j=0;
+         while(i<5 && j<5)
+         {
+          first+=event1[0][i];
+          third+=event2[0][i];
+             
+          second+=event1[1][j];
+          fourth+=event2[1][j];
+             
+             if(i==1 && j==1){
+                 i+=2;
+                 j+=2;
+             }
+             else{
+                 i++;
+                 j++;
+             }
+         }
+         int one =stoi(first);
+         int two=stoi(second);
+         int three=stoi(third);
+         int four=stoi(fourth);
+         if((three<one && four<one )|| (three>two && four>two ))return false;
+        return true;;
+    }
