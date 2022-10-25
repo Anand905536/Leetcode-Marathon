@@ -1,0 +1,25 @@
+  bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        int n=word1.size();
+        int m=word2.size();
+        int i=0;
+        int j=0;
+        string first="";
+        string second="";
+        while(i<n || j<m)
+        {    
+            if(i<n)first+=word1[i++];
+            if(j<m)second+=word2[j++];
+        }       
+        i=0;
+        j=0;
+        while(i<first.size() || j<second.size())
+        {
+            if(first[i]!=second[j])return false;
+            
+            i++;
+            j++;
+        }
+        
+        return true;
+        
+    }
