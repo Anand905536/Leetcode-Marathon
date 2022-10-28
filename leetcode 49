@@ -1,0 +1,22 @@
+ vector<vector<string>> groupAnagrams(vector<string>& strs) {
+       unordered_map<string,vector<string>>mp;
+        for(auto i:strs)
+        {
+            string x=i;
+            sort(x.begin(),x.end());
+            mp[x].push_back(i);
+        }
+        // for(auto it:mp)
+        // {
+        //   cout<<it.first<<" ";
+        //     vector<string>inVect=it.second;
+        //   for (int j=0; j<inVect.size(); j++){
+        //     cout << inVect[j] << " ";
+        //    }
+        //    cout << endl;
+        // }
+        vector<vector<string>>ans;
+        for(auto i:mp)ans.push_back(i.second);
+      
+        return ans;
+    }
