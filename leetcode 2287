@@ -1,0 +1,12 @@
+ int rearrangeCharacters(string s, string target) {
+        unordered_map<char,int>mp1;
+        unordered_map<char,int>mp2;
+        int mini=INT_MAX;
+        for(auto i:s)mp1[i]++;
+        for(auto i:target)mp2[i]++;
+        for(auto i:mp2){
+            cout<<mp1[i.first]<<" "<<i.second<<"   ";
+             mini=min(mini,mp1[i.first]/i.second); 
+        }
+        return mini;
+    }
