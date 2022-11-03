@@ -1,0 +1,14 @@
+ vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>ans;
+        unordered_map<int,int>mp;
+        for(auto i:nums1)mp[i]++;
+         unordered_map<int,int>mp2;
+        for(auto i:nums2)mp2[i]++;
+        for(auto i:mp2)
+        {
+            if(mp.find(i.first)!=mp.end()){
+                ans.push_back(i.first);
+            }
+        }
+        return ans;      
+    }
