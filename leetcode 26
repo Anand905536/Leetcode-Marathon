@@ -1,0 +1,16 @@
+  int removeDuplicates(vector<int>& nums) {
+        int n=nums.size();
+       int i=0;
+       int count=0;
+       while(i<nums.size()-1)
+       {
+           if(nums[i]==nums[i+1])
+           {
+               nums[i]=101;
+               count++;
+           }
+           i++;
+       }
+       sort(nums.begin(),nums.end());
+       return n-count;
+    }
