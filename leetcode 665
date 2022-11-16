@@ -1,12 +1,17 @@
- bool checkPossibility(vector<int>& nums) {
+
+we will find a min_value and that min_value would be updated if next element is smaller or equal to previous element ,and if not so then we will check that next element
+is less then our min_value if smaller then we will update our next element and decrease the count;
+
+
+bool checkPossibility(vector<int>& nums) {
       int count = 1;
         int min_value = INT_MIN;
         for(int i = 0; i < nums.size()-1; i++){
-            if(nums[i] <= nums[i + 1]){
-                min_value = nums[i];
-            }else{
-                if(nums[i + 1] < min_value){
-                    nums[i+1] = nums[i];
+            if(nums[i] <= nums[i + 1]){                     //checking previous is <= next or not 
+                min_value = nums[i];                         //if yes then update our min_value by current element
+            }else{                
+                if(nums[i + 1] < min_value){                 // else check next element is smaller then previous 
+                    nums[i+1] = nums[i];                     // if smaller then upadte our next elment by current element or decrease the count
                 }
                 count -= 1;
             }
