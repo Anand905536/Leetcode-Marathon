@@ -1,0 +1,18 @@
+ int minimumLines(vector<vector<int>>& stockPrices) {
+        sort(stockPrices.begin(),stockPrices.end());
+       long double ans=INT_MIN;
+       int count=0;
+       for(int i=1;i<stockPrices.size();i++)
+       {
+          long  double x1=stockPrices[i-1][0];
+          long double y1=stockPrices[i-1][1];
+          long double x2=stockPrices[i][0];
+          long double y2=stockPrices[i][1];
+          long double slope=(long double)((y2-y1)/(x2-x1));
+           if(slope!=ans){
+               count++;
+               ans=slope;
+           }
+       }
+       return count;
+    }
