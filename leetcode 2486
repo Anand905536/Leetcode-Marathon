@@ -1,0 +1,16 @@
+int appendCharacters(string s, string t) {
+        int count=0;
+        int i=0;
+        int k=0;
+        while(i<s.size() && k<t.size())
+        {
+           if(s[i]==t[k])
+           {
+               count++;
+               i++;
+               k++;
+           }
+            else i++;
+        }
+        return t.size()-count;
+    }
