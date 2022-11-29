@@ -1,0 +1,16 @@
+int pivotInteger(int n) {
+        long long totalsum=(n*(n+1))/2;
+        long long res=0;
+        int count=0;
+        int k=n;
+        res=k;
+        for(int i=n;i>=1;i--)
+        {
+            cout<<totalsum<<" "<<res<<endl;
+            if(res==totalsum)return i;
+            res+=--k;
+            totalsum-=i;
+            count++;
+        }
+        return -1;
+    }
