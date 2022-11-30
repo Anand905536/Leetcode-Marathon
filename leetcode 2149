@@ -1,0 +1,26 @@
+ vector<int> rearrangeArray(vector<int>& nums) {
+       vector<int>neg;
+       vector<int>pos;
+       int i=0;
+       int j=0;
+       while(i<nums.size() || j<nums.size())
+       {
+           if(i<nums.size() && nums[i]>0){
+               pos.push_back(nums[i]);
+           }
+           if(j<nums.size() && nums[j]<0){
+               neg.push_back(nums[j]);
+           }
+           i++;
+           j++;
+       }
+       nums.clear();
+       int k=0;
+       while(k<pos.size()){
+           nums.push_back(pos[k]);
+           nums.push_back(neg[k]);
+           k++;
+       }
+       return nums;
+    }
+};
