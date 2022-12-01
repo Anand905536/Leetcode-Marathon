@@ -1,0 +1,18 @@
+int longestConsecutive(vector<int>& nums) {
+        if(nums.size()==0)return 0;
+      set<int>st(nums.begin(),nums.end());
+      vector<int>ans;
+      for(auto i:st)ans.push_back(i);
+      int count=1;
+      int maxcount=0;
+      for(int i=1;i<ans.size();i++)
+      {
+          if(ans[i-1]+1==ans[i])count++;
+          else{
+              maxcount=max(count,maxcount);
+              count=1;
+          }
+      }
+      maxcount=max(count,maxcount);
+      return maxcount;
+    }
