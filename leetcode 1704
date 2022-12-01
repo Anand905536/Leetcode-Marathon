@@ -1,0 +1,22 @@
+  bool halvesAreAlike(string s) {
+        string one="";
+        string sec="";
+        int i;
+        for(i=0;i<s.size()/2;i++)one+=s[i];
+        for(int j=i;j<s.size();j++)sec+=s[j];
+        int k=0;
+        int count1=0;
+        int count2=0;
+        while(k<one.size())
+        {
+           if(one[k]=='a' || one[k]=='e'|| one[k]=='i'|| one[k]=='o' ||one[k]=='u' ||
+              one[k]=='A' || one[k]=='E'|| one[k]=='I'|| one[k]=='O' ||one[k]=='U' )
+              count1++;
+           if(sec[k]=='a' || sec[k]=='e'|| sec[k]=='i'|| sec[k]=='o' ||sec[k]=='u' ||
+              sec[k]=='A' || sec[k]=='E'|| sec[k]=='I'|| sec[k]=='O' ||sec[k]=='U')
+           count2++;
+           k++;
+        }
+        cout<<one<<" "<<count1<<" "<<sec<<" "<<count2;
+        return count1==count2;
+    }
