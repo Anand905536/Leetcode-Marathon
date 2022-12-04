@@ -1,0 +1,26 @@
+long long dividePlayers(vector<int>& skill) {
+        sort(skill.begin(),skill.end());
+        vector<pair<int,int>>vp;
+        int i=0;
+        int j=skill.size()-1;
+        int sum=skill[i]+skill[j];
+        vp.push_back({skill[i++],skill[j--]});
+       
+        while(i<j)
+        {
+            if(sum==skill[i]+skill[j]){
+                vp.push_back({skill[i],skill[j]});
+           }
+            else break;
+            i++;
+            j--;
+        }
+        if(i<j)return -1;
+        
+        long long ans=0;;
+        for(auto i:vp)
+        {
+          ans+=i.first*i.second;
+        }
+        return ans;
+    }
